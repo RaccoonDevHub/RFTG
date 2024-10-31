@@ -31,7 +31,8 @@ public class UserController {
   @DeleteMapping(path = "/delete/{id}")
   public @ResponseBody String deleteFilm(@PathVariable Integer id) {
     userRepository.deleteById(id);
-    return "Location Supprimée";
+
+    return "Utilisateur supprimée";
   }
 
   @GetMapping(path = "/all")
