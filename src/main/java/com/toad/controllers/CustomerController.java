@@ -86,8 +86,13 @@ public class CustomerController {
         if (customer == null) {
             resultString = "this customer doesn't exist";
         } else {
-            customerRepository.delete(customer);
-            resultString = "customer delete";
+            try {
+                customerRepository.delete(customer);
+            } catch (Exception e) {
+            }
+            {
+                resultString = "cannot be deleted because of foreign key";
+            }
         }
         return resultString;
 
